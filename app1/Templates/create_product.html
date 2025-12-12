@@ -1,0 +1,14 @@
+{% extends 'extras/navegacion.html' %}
+
+{% block pag %}
+
+<title>Create_Product</title>
+<h1 class="btn">Crear una nueva Products </h1>
+
+<form method="POST", class="btn">
+    {% csrf_token %}
+    {{ forms.as_p }}
+    <button class="btn" type="submit">Guardar</button>
+</form>
+
+{% endblock %}

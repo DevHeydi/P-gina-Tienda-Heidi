@@ -1,0 +1,54 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}Mi Sitio{% endblock %}</title>
+    
+    <!-- CSS -->
+    <link rel="stylesheet" href="{% static 'CSS/bases.css' %}">
+    <link rel="shortcut icon" href="{% static 'icono.png' %}" type="image/png">
+    
+    <!-- JS Opcional para móviles -->
+    <script src="{% static 'js/menu.js' %}" defer></script>
+</head>
+
+<body>
+<nav class="navbar">
+    <ul class="menu">
+        <li><a href="{% url 'home' %}" {% if request.path == '/' %}class="active"{% endif %}>Home</a></li>
+        <li><a href="{% url 'info' %}" {% if 'info' in request.path %}class="active"{% endif %}>Información</a></li>
+
+        <li class="submenu-container">
+            <a href="javascript:void(0)" class="submenu-toggle">Stores ▾</a>
+            <ul class="submenu">
+                <li><a href="{% url 'stores' %}">Ver Stores</a></li>
+                <li><a href="{% url 'create_store' %}">Crear Store</a></li>
+                <li><a href="{% url 'filtro_tienda' %}">Buscar Tienda</a></li>
+                <li><a href="{% url 'update_store' %}">Actualizar Tienda</a></li>
+                <li><a href="{% url 'delete_stores' %}">Eliminar Tienda</a></li>
+            </ul>
+        </li>
+
+        <li class="submenu-container">
+            <a href="javascript:void(0)" class="submenu-toggle">Products ▾</a>
+            <ul class="submenu">
+                <li><a href="{% url 'products' %}">Ver Productos</a></li>
+                <li><a href="{% url 'create_product' %}">Crear Producto</a></li>
+                <li><a href="{% url 'filtro' %}">Buscar Producto</a></li>
+                <li><a href="{% url 'update_product' %}">Actualizar Producto</a></li>
+                <li><a href="{% url 'delete_product' %}">Eliminar Producto</a></li>
+            </ul>
+        </li>
+
+        <li><a href="{% url 'contact' %}" {% if 'contact' in request.path %}class="active"{% endif %}>Contacto</a></li>
+    </ul>
+</nav>
+
+<main class="all">
+    {% block pag %}{% endblock %}
+</main>
+
+</body>
+</html>

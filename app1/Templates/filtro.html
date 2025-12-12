@@ -1,0 +1,25 @@
+{% extends 'extras/navegacion.html' %}
+{% load static %}
+{% block pag %}
+
+<h1>Buscar Producto</h1>
+
+<form method="GET">{% csrf_token %}
+    <input 
+        type="text" 
+        id="kword" 
+        name="kword"
+        placeholder="Ingrese producto aqui">
+    <button type="submit">Buscar</button>    
+
+<h3>Lista de resultados de productos</h3>
+<ul>
+    {% for e in productos %}
+        <li>
+            {{ e.title }} - {{ e.price}} - {{e.store}} - {{e.sold}}
+        </li>
+    {% endfor %}
+</ul>
+
+</form>
+{% endblock %}

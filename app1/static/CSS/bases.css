@@ -1,0 +1,590 @@
+/* ===== RESET BÁSICO ===== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #FFFFFF; /* Blanco de fondo principal */
+    line-height: 1.6;
+    color: #000000; /* Negro para texto general */
+}
+
+/* ===== NAVBAR (MENÚ PRINCIPAL) ===== */
+.navbar {
+    background: linear-gradient(135deg, #FFFFFF, #1E90FF); /* Blanco a Azul principal */
+    padding: 0;
+    width: 100%;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+/* Contenedor del menú principal */
+.menu {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0;
+    margin: 0;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* Cada item del menú */
+.menu > li {
+    position: relative;
+}
+
+/* Enlaces del menú principal */
+.menu > li > a {
+    color: #FFFFFF; /* Blanco */
+    text-decoration: none;
+    font-size: 16px;
+    font-weight: 500;
+    padding: 18px 24px;
+    display: block;
+    transition: all 0.3s ease;
+    border-bottom: 3px solid transparent;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+/* Efecto hover en enlaces principales */
+.menu > li > a:hover {
+    background-color: rgba(255, 255, 255, 0.1); /* Blanco con transparencia */
+    border-bottom: 3px solid #FF4C4C; /* Rojo para hover */
+    padding-bottom: 15px;
+    color: #FFFFFF;
+}
+
+/* Color para hipervínculos en hover según tu paleta */
+.menu > li > a:hover {
+    color: #ff8400; /* Naranja para hover - según tu paleta */
+}
+
+/* Flecha en los submenús */
+.submenu-toggle::after {
+    content: " ▾";
+    font-size: 12px;
+    margin-left: 8px;
+    opacity: 0.8;
+    color: #FFFFFF; /* Blanco */
+}
+
+/* ===== SUBMENÚS ===== */
+.submenu {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background: #FFFFFF; /* Blanco de fondo */
+    padding: 8px 0;
+    margin-top: 0;
+    list-style: none;
+    border-radius: 0 0 8px 8px;
+    min-width: 220px;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+    z-index: 1000;
+    
+    /* Oculto por defecto */
+    display: none;
+    opacity: 0;
+    transform: translateY(-10px);
+    transition: all 0.3s ease;
+    border-top: 3px solid #1E90FF; /* Azul principal para borde superior */
+}
+
+/* Mostrar submenú cuando se pasa el mouse */
+.submenu-container:hover .submenu {
+    display: block;
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Items dentro del submenú */
+.submenu li {
+    width: 100%;
+}
+
+.submenu li a {
+    color: #000000; /* Negro para texto */
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: normal;
+    padding: 12px 24px;
+    display: block;
+    transition: all 0.2s ease;
+    border-left: 4px solid transparent;
+    text-transform: none;
+    letter-spacing: normal;
+}
+
+/* Efecto hover en items del submenú */
+.submenu li a:hover {
+    background-color: #f8f9fa; /* Gris claro para hover */
+    color: #ff8400; /* Naranja para texto en hover */
+    border-left: 4px solid #1E90FF; /* Azul principal para borde */
+    padding-left: 20px;
+}
+
+/* Separador entre items del submenú */
+.submenu li:not(:last-child) {
+    border-bottom: 1px solid #B0B0B0; /* Gris para separadores */
+}
+
+/* ===== CONTENIDO PRINCIPAL ===== */
+.all {
+    padding: 40px;
+    max-width: 1200px;
+    margin: 40px auto;
+    background: #FFFFFF; /* Blanco */
+    border-radius: 12px;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
+    min-height: 500px;
+    
+    /* Flexbox para centrar contenido interno */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* Centrar todos los elementos hijos directos */
+.all > * {
+    width: 100%;
+    max-width: 900px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* ===== TIPOGRAFÍA ===== */
+.all h1, .all h2, .all h3 {
+    text-align: center;
+    color: #000000; /* Negro para títulos */
+    margin-bottom: 25px;
+    padding-bottom: 15px;
+    border-bottom: 2px solid #B0B0B0; /* Gris para bordes */
+    width: 100%;
+}
+
+.all h1 {
+    font-size: 2.5rem;
+    border-bottom: 3px solid #1E90FF; /* Azul principal */
+    color: #1E90FF; /* Azul para h1 */
+}
+
+.all h2 {
+    font-size: 2rem;
+    color: #000000; /* Negro */
+}
+
+.all h3 {
+    font-size: 1.5rem;
+    color: #000000; /* Negro */
+}
+
+/* Hipervínculos en contenido */
+.all a:not(.menu a):not(.submenu a) {
+    color: #1E90FF; /* Azul para enlaces generales */
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+.all a:not(.menu a):not(.submenu a):hover {
+    color: #ff8400; /* Naranja para hover */
+    text-decoration: underline;
+}
+
+/* Párrafos */
+.all p {
+    text-align: center;
+    line-height: 1.8;
+    margin-bottom: 20px;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+    color: #000000; /* Negro */
+}
+
+/* Listas */
+.all ul, .all ol {
+    max-width: 700px;
+    margin: 0 auto 25px auto;
+    padding-left: 30px;
+}
+
+.all li {
+    margin-bottom: 10px;
+    line-height: 1.6;
+    color: #000000; /* Negro */
+}
+
+/* ===== TABLAS ===== */
+.all table {
+    width: 100%;
+    max-width: 900px;
+    margin: 0 auto 30px auto;
+    border-collapse: collapse;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.05);
+    border: 1px solid #B0B0B0; /* Gris para bordes */
+}
+
+.all table th, .all table td {
+    padding: 12px 15px;
+    text-align: center;
+    border: 1px solid #B0B0B0; /* Gris para bordes */
+}
+
+.all table th {
+    background-color: #1E90FF; /* Azul principal para encabezados */
+    color: #FFFFFF; /* Blanco para texto */
+    font-weight: 600;
+}
+
+.all table tr:nth-child(even) {
+    background-color: #f8f9fa; /* Gris muy claro para filas pares */
+}
+
+.all table tr:hover {
+    background-color: rgba(255, 132, 0, 0.1); /* Naranja claro para hover */
+}
+
+/* ===== FORMULARIOS ===== */
+.all form {
+    width: 100%;
+    max-width: 700px;
+    margin: 0 auto 30px auto;
+    padding: 30px;
+    background: #f8f9fa; /* Gris claro de fondo */
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+    border: 1px solid #B0B0B0; /* Gris para borde */
+}
+
+.all form .form-group {
+    margin-bottom: 20px;
+}
+
+.all form label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 600;
+    color: #000000; /* Negro */
+    text-align: left;
+}
+
+.all form input[type="text"],
+.all form input[type="email"],
+.all form input[type="number"],
+.all form input[type="password"],
+.all form select,
+.all form textarea {
+    width: 100%;
+    padding: 12px 15px;
+    border: 2px solid #B0B0B0; /* Gris */
+    border-radius: 6px;
+    font-size: 16px;
+    transition: border-color 0.3s;
+    background-color: #FFFFFF; /* Blanco */
+    color: #000000; /* Negro */
+}
+
+.all form input:focus,
+.all form select:focus,
+.all form textarea:focus {
+    outline: none;
+    border-color: #1E90FF; /* Azul principal para foco */
+    box-shadow: 0 0 0 3px rgba(30, 144, 255, 0.2); /* Azul difuminado */
+}
+
+/* ===== BOTONES ===== */
+.all button,
+.all .btn,
+.all input[type="submit"],
+.all input[type="button"] {
+    display: block;
+    margin: 20px auto;
+    padding: 12px 30px;
+    background: #1E90FF; /* Azul principal */
+    color: #FFFFFF; /* Blanco */
+    border: none;
+    border-radius: 6px;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s;
+    min-width: 200px;
+    text-align: center;
+}
+
+.all button:hover,
+.all .btn:hover,
+.all input[type="submit"]:hover,
+.all input[type="button"]:hover {
+    background: #1E90FF; /* Mantener azul */
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(30, 144, 255, 0.3); /* Azul difuminado */
+    color: #FFFFFF; /* Blanco */
+}
+
+/* Botones secundarios */
+.all button.secondary,
+.all .btn.secondary {
+    background: #B0B0B0; /* Gris */
+    color: #000000; /* Negro */
+}
+
+.all button.secondary:hover,
+.all .btn.secondary:hover {
+    background: #999999; /* Gris más oscuro */
+    box-shadow: 0 5px 15px rgba(176, 176, 176, 0.3);
+}
+
+/* Botones de peligro/eliminar */
+.all button.danger,
+.all .btn.danger {
+    background: #FF4C4C; /* Rojo */
+    color: #FFFFFF; /* Blanco */
+}
+
+.all button.danger:hover,
+.all .btn.danger:hover {
+    background: #E60000; /* Rojo más oscuro */
+    box-shadow: 0 5px 15px rgba(255, 76, 76, 0.3);
+}
+
+/* Contenedor para grupos de botones */
+.all .button-container {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    flex-wrap: wrap;
+    margin-top: 30px;
+    width: 100%;
+}
+
+.all .button-container button,
+.all .button-container .btn {
+    margin: 5px;
+    min-width: 150px;
+}
+
+/* ===== ALERTAS/MENSAJES ===== */
+.all .alert,
+.all .message {
+    max-width: 800px;
+    margin: 20px auto;
+    padding: 15px 20px;
+    border-radius: 6px;
+    text-align: center;
+    font-weight: 500;
+    border: 1px solid #B0B0B0; /* Gris */
+}
+
+.all .alert-success {
+    background: rgba(30, 144, 255, 0.1); /* Azul claro */
+    color: #1E90FF; /* Azul para texto */
+    border-color: #1E90FF; /* Azul para borde */
+}
+
+.all .alert-error,
+.all .alert-danger {
+    background: rgba(255, 76, 76, 0.1); /* Rojo claro */
+    color: #FF4C4C; /* Rojo para texto */
+    border-color: #FF4C4C; /* Rojo para borde */
+}
+
+.all .alert-warning {
+    background: rgba(255, 132, 0, 0.1); /* Naranja claro */
+    color: #ff8400; /* Naranja para texto */
+    border-color: #ff8400; /* Naranja para borde */
+}
+
+.all .alert-info {
+    background: rgba(176, 176, 176, 0.1); /* Gris claro */
+    color: #000000; /* Negro para texto */
+    border-color: #B0B0B0; /* Gris para borde */
+}
+
+/* ===== IMÁGENES ===== */
+.all img {
+    max-width: 400px !important;
+    max-height: 300px !important;
+    width: auto !important;
+    height: auto !important;
+    display: block !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+    margin-top: 20px !important;
+    margin-bottom: 20px !important;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    object-fit: contain;
+    border: 2px solid #B0B0B0; /* Gris para borde */
+}
+
+/* Tamaños específicos para imágenes */
+.all img.img-small {
+    max-width: 200px !important;
+    max-height: 150px !important;
+}
+
+.all img.img-medium {
+    max-width: 400px !important;
+    max-height: 300px !important;
+}
+
+.all img.img-large {
+    max-width: 600px !important;
+    max-height: 400px !important;
+}
+
+/* Para logos o iconos */
+.all img[src*="logo"],
+.all img[src*="icon"] {
+    max-width: 150px !important;
+    max-height: 100px !important;
+}
+
+/* ===== ESTADOS ESPECIALES ===== */
+/* Texto secundario/deshabilitado */
+.all .text-muted,
+.all .text-secondary {
+    color: #B0B0B0 !important; /* Gris */
+}
+
+/* Elementos activos/seleccionados */
+.all .active,
+.all :focus {
+    outline: 2px solid #ff8400; /* Naranja para foco */
+    outline-offset: 2px;
+}
+
+/* Para la página activa en el menú */
+.menu > li > a.active {
+    background-color: rgba(255, 255, 255, 0.15);
+    border-bottom: 3px solid #ff8400; /* Naranja para página activa */
+    font-weight: 600;
+    color: #FFFFFF; /* Blanco */
+}
+
+/* ===== RESPONSIVE DESIGN ===== */
+@media (max-width: 992px) {
+    .menu {
+        flex-direction: column;
+        align-items: stretch;
+    }
+    
+    .menu > li > a {
+        padding: 15px 20px;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        border-left: 4px solid transparent;
+    }
+    
+    .menu > li > a:hover {
+        border-left: 4px solid #ff8400; /* Naranja */
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        padding-left: 16px;
+    }
+    
+    .submenu {
+        position: static;
+        width: 100%;
+        border-radius: 0;
+        box-shadow: none;
+        border-top: none;
+        border-left: 4px solid #1E90FF; /* Azul */
+        margin-top: 0;
+        background: rgba(255, 255, 255, 0.95);
+    }
+    
+    .submenu li a {
+        padding-left: 40px;
+    }
+    
+    /* Ajustes responsive para contenido */
+    .all {
+        padding: 25px;
+        margin: 25px auto;
+    }
+    
+    .all > * {
+        max-width: 100%;
+    }
+    
+    .all form {
+        padding: 20px;
+    }
+    
+    .all .button-container {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .all .button-container button,
+    .all .button-container .btn {
+        width: 100%;
+        max-width: 300px;
+    }
+    
+    /* Ajustes responsive para imágenes */
+    .all img {
+        max-width: 90% !important;
+        max-height: 250px !important;
+    }
+}
+
+/* Para pantallas pequeñas */
+@media (max-width: 576px) {
+    .all {
+        padding: 20px 15px;
+        margin: 15px;
+    }
+    
+    .menu > li > a {
+        padding: 12px 15px;
+        font-size: 14px;
+    }
+    
+    .all h1 {
+        font-size: 2rem;
+    }
+    
+    .all h2 {
+        font-size: 1.5rem;
+    }
+    
+    .all h3 {
+        font-size: 1.2rem;
+    }
+    
+    .all form {
+        padding: 15px;
+    }
+    
+    /* Ajustes extra para imágenes en móviles */
+    .all img {
+        max-width: 100% !important;
+        max-height: 200px !important;
+    }
+}
+
+/* Para pantallas muy grandes */
+@media (min-width: 1400px) {
+    .menu {
+        max-width: 1400px;
+    }
+    
+    .menu > li > a {
+        padding: 20px 30px;
+        font-size: 17px;
+    }
+}
+
+/* Animación suave para todo el navbar */
+.navbar, .menu > li > a, .submenu li a {
+    transition: all 0.3s ease;
+}

@@ -1,0 +1,29 @@
+{% extends 'extras/navegacion.html' %}
+{% block pag %}
+
+<h1>Actualizar Producto</h1>
+
+<!-- BUSCADOR -->
+<form method="GET">
+    <input type="text" name="kword" placeholder="Nombre del producto">
+    <button type="submit">Buscar</button>
+</form>
+
+{% if error %}
+    <p style="color:red;">{{ error }}</p>
+{% endif %}
+
+{% if forms %}
+    <h3>Editar Producto</h3>
+    <form method="POST">
+        {% csrf_token %}
+        
+        <!-- Necesario para saber cuál producto estamos editando -->
+        <input type="hidden" name="title_original" value="{{ product.title }}">
+
+        {{ forms.as_p }}
+        <button class="btn">Guardar Cambios</button>
+    </form>
+{% endif %}
+
+{% endblock %}

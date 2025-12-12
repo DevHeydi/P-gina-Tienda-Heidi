@@ -1,0 +1,29 @@
+{% extends 'extras/navegacion.html' %}
+{% block pag %}
+
+<h1>Actualizar Tienda</h1>
+
+<!-- BUSCADOR -->
+<form method="GET">
+    <input type="text" name="kword" placeholder="Nombre de la tienda">
+    <button type="submit">Buscar</button>
+</form>
+
+{% if error %}
+    <p style="color:red;">{{ error }}</p>
+{% endif %}
+
+{% if form %}
+    <h3>Editar Tienda</h3>
+    <form method="POST">
+        {% csrf_token %}
+        
+        <!-- Necesario para saber cuál tienda estamos editando -->
+        <input type="hidden" name="name_original" value="{{ store.name }}">
+
+        {{ form.as_p }}
+        <button class="btn">Guardar Cambios</button>
+    </form>
+{% endif %}
+
+{% endblock %}

@@ -1,0 +1,29 @@
+{% extends 'extras/navegacion.html' %}
+{% load static %}
+{% block pag %}
+
+<h1>Buscar Tienda</h1>
+
+<form method="GET">{% csrf_token %}
+    <input 
+        type="text" 
+        id="kword" 
+        name="kword"
+        placeholder="Ingrese la tienda aqui">
+    <button type="submit">Buscar</button>    
+
+<h3>Lista de resultados de Tiendas</h3>
+<ul>
+    {% for e in stores %}
+        <li>
+            {{ e.name }} - {{ e.description }}
+        </li>
+    {% endfor %}
+</ul>
+
+</form>
+{% endblock %}
+
+
+
+
